@@ -15,7 +15,6 @@ export const Formulario = () => {
     setPokemon(null)
     try {
       const resp = await buscarPokemon(data.nombre);
-      console.log(resp)
       setPokemon(resp);
       setEvoluciones(resp.evoluciones);
       reset();
@@ -23,6 +22,8 @@ export const Formulario = () => {
         registrarLog({ pokemon: resp });
       }
     } catch (err) {
+      reset();
+      setEvoluciones([]);
       setError(err);
       console.error("ERROR::" + err.message)
     }

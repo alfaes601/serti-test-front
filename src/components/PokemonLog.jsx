@@ -8,7 +8,6 @@ export const PokemonLog = () => {
       try {
         const res = await buscarLog();
         setRegistros(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error('Error al buscar registros:', error);
       }
